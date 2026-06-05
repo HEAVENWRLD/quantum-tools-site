@@ -1,72 +1,167 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quantum Tools</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quantum Tools</title><style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#0B0F1A;
 color:white;
+overflow-x:hidden;
+background:#050816;
 }
 
-header{
+/* Animated Background */
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(
+-45deg,
+#00F5FF,
+#A855F7,
+#0B0F1A,
+#00F5FF
+);
+
+background-size:400% 400%;
+animation:gradientMove 15s ease infinite;
+z-index:-2;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Overlay */
+
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(5,8,22,0.88);
+z-index:-1;
+}
+
+/* Hero */
+
+.hero{
 text-align:center;
-padding:80px 20px;
-background:linear-gradient(135deg,#111827,#0B0F1A);
+padding:100px 20px;
 }
 
 .logo{
-font-size:64px;
-margin-bottom:15px;
+font-size:80px;
+animation:floatLogo 3s ease-in-out infinite;
+filter:drop-shadow(0 0 25px #00F5FF);
 }
 
-h1{
-font-size:42px;
+@keyframes floatLogo{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+.hero h1{
+font-size:48px;
 color:#00F5FF;
-margin-bottom:10px;
+text-shadow:0 0 20px #00F5FF;
+margin-top:15px;
 }
 
-.tagline{
-color:#9CA3AF;
+.hero p{
+margin-top:20px;
+color:#cbd5e1;
 font-size:18px;
-max-width:600px;
-margin:auto;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
 }
+
+/* Buttons */
+
+.buttons{
+margin-top:40px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+margin:10px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.primary{
+background:#00F5FF;
+color:black;
+box-shadow:0 0 25px #00F5FF;
+}
+
+.primary:hover{
+transform:scale(1.05);
+}
+
+.secondary{
+border:1px solid #00F5FF;
+color:white;
+}
+
+.secondary:hover{
+background:#00F5FF;
+color:black;
+}
+
+/* Features */
 
 .features{
-padding:60px 20px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
+padding:50px 20px;
 }
 
-.features h2{
+.section-title{
 text-align:center;
+font-size:34px;
 margin-bottom:40px;
 color:#00F5FF;
+text-shadow:0 0 15px #00F5FF;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
+/* Glass Cards */
+
 .card{
-background:#161D2D;
-border:1px solid #00F5FF;
-border-radius:16px;
 padding:25px;
-transition:0.3s;
+border-radius:20px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,0.1);
+
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,245,255,.5);
 }
 
 .card h3{
@@ -74,61 +169,56 @@ color:#00F5FF;
 margin-bottom:10px;
 }
 
-.download{
-text-align:center;
-padding:60px 20px;
-}
-
-.button{
-display:inline-block;
-padding:15px 35px;
-background:#00F5FF;
-color:black;
-font-weight:bold;
-border-radius:12px;
-text-decoration:none;
-}
+/* Footer */
 
 footer{
-padding:40px;
+padding:50px 20px;
 text-align:center;
-color:#9CA3AF;
+color:#94a3b8;
 }
 
 footer a{
 color:#00F5FF;
 text-decoration:none;
 }
-</style></head>
-<body><header><div class="logo">🚀</div><h1>Quantum Tools</h1><p class="tagline">
-All-in-One Utility Suite with QR Tools, Converters,
-File Management, Media Playback and Viral Quotes & Memes Feed.
-</p></header><section class="features"><h2>Powerful Features</h2><div class="grid"><div class="card">
+
+</style></head><body><div class="bg"></div>
+<div class="overlay"></div><section class="hero"><div class="logo">🚀</div><h1>Quantum Tools</h1><p>
+The futuristic all-in-one toolbox featuring QR generation,
+unit conversion, file management, PDF utilities,
+image tools, media playback, and a viral quotes & memes feed.
+</p><div class="buttons"><a href="#" class="btn primary">
+Coming Soon
+</a><a href="privacy-policy.html" class="btn secondary">
+Privacy Policy
+</a></div></section><section class="features"><h2 class="section-title">
+Powerful Features
+</h2><div class="grid"><div class="card">
 <h3>📱 QR Generator</h3>
-<p>Create QR codes for URLs, WiFi, phone numbers and custom text.</p>
+<p>Create QR codes for links, WiFi, contacts and text.</p>
 </div><div class="card">
 <h3>📏 Unit Converter</h3>
-<p>Convert length, weight, speed and temperature instantly.</p>
+<p>Length, speed, weight and temperature conversions.</p>
 </div><div class="card">
 <h3>📂 File Manager</h3>
-<p>Manage and organize local files with ease.</p>
+<p>Manage files stored on your device.</p>
 </div><div class="card">
 <h3>📄 PDF Tools</h3>
-<p>Useful PDF utilities packed into one application.</p>
+<p>Useful PDF utilities in one place.</p>
 </div><div class="card">
 <h3>🖼 Image Tools</h3>
-<p>Compress and optimize images directly on your device.</p>
+<p>Compress and optimize images locally.</p>
 </div><div class="card">
 <h3>🎥 Media Player</h3>
-<p>Play audio and video with advanced playback controls.</p>
+<p>Play audio and video with advanced controls.</p>
 </div><div class="card">
 <h3>🔥 Quotes & Memes Feed</h3>
-<p>Enjoy motivational quotes, memes, jokes and shareable content.</p>
-</div></div></section><section class="download"><h2>Coming Soon</h2><p style="margin:20px 0;">
-Quantum Tools will soon be available for Android devices.
-</p><a href="#" class="button">
-Download Soon
-</a></section><footer><p>© 2026 Quantum Tools. All Rights Reserved.</p><br><p>
-<a href="privacy-policy.html">Privacy Policy</a>
+<p>Motivational, funny and viral content feed.</p>
+</div></div></section><footer><p>
+© 2026 Quantum Tools
+</p><br><p>
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
 </p></footer></body>
-  </html>
+</html>
